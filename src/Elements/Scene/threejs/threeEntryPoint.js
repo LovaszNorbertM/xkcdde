@@ -21,10 +21,12 @@ export default containerElement => {
   }
   const render = (time) => {
     requestAnimationFrame(render);
+    
     sceneManager.update();
   }
   const canvas = createCanvas(document, containerElement);
   const sceneManager = new SceneManager(canvas);
+  window.addEventListener('mousedown',sceneManager.onMouseMove, false)
   bindEventListeners();
   render();
   // setTimeout(sceneManager.disposeSceneEl,5000)
